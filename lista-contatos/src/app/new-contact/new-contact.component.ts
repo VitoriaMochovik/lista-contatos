@@ -39,8 +39,13 @@ export class NewContactComponent implements OnInit {
     )
 
     console.log("Solicitei", this.name, this.email, this.telephone )
+    this.limparCampos()
   }
 
-
+  limparCampos() {
+    this.name = ""
+    this.email = ""
+    this.telephone = ""
+  }
 
 }
