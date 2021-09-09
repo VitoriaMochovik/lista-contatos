@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BoundElementProperty } from '@angular/compiler';
+import { constants } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,16 @@ export class CreateContatService {
 
   getAllContacts() {
     return this.httpClient.get<Contact[]>(this.url)
+  }
+
+  updateContact(contact: Contact) {
+    const newUrl = `${this.url}/${contact.id}`
+    return this.httpClient.put<Contact>(newUrl, contact)
+  }
+
+  deleteContact(contact: Contact) {
+    const newUrl = `${this.url}/${contact.id}`
+
+    return this.httpClient.delete<Contact>(newUrl)
   }
 }
