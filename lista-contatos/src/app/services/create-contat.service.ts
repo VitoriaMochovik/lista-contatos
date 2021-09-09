@@ -19,4 +19,8 @@ export class CreateContatService {
     console.log("body", body)
     return this.httpClient.post<Contact>(this.url, body)
   }
+
+  getAllContacts() {
+    return this.httpClient.get<Contact[]>(this.url)
+  }
 }
