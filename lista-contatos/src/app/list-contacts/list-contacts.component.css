@@ -2,6 +2,7 @@
 
 .mat-list {
   margin: 10px;
+
 }
 
 .mat-list-item {
@@ -9,14 +10,27 @@
   margin-bottom: 15px;
   border-radius: 10px;
   border: 1px solid #DAE0E6;
+
 }
 
 .title {
   align-items: center;
   text-align: center;
   background-color: brown;
+
+
 }
 
 .h2 {
   text-align: center;
+}
+
+.mat-icon {
+  margin-left: 5px;
+
+
+}
+
+.mat-icon:hover {
+  cursor: pointer;
 }
