@@ -1,0 +1,11 @@
+<section>
+  <h2> Contatos</h2>
+  <div *ngFor="let contato of contatos">
+    <p> {{contato.name}}</p>
+    <p> {{contato.email}}</p>
+    <p> {{contato.telephone_number}} </p>
+     <button (click)="onEdit(contato)"> Editar</button>
+    <button (click)="delete(contato)"> X </button>
+    <p> _________________________</p>
+  </div>
+</section>

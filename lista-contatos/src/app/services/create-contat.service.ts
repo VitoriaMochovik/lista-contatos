@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BoundElementProperty } from '@angular/compiler';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,25 @@ export class CreateContatService {
 
     console.log("body", body)
     return this.httpClient.post<Contact>(this.url, body)
+  }
+
+  loadById(id: string){
+    return this.httpClient.get(`${this.url}/${id}`)
+  }
+
+  getAllContacts() {
+    return this.httpClient.get<Contact[]>(this.url)
+  }
+
+  updateContact(contact: Contact): Observable<Contact>{
+    const newUrl = `${this.url}/${contact.id}`
+    return this.httpClient.put<Contact>(newUrl, contact)
+  }
+
+  deleteContact(contact: Contact): Observable<any>{
+    const newUrl = `${this.url}/${contact.id}`
+
+    return this.httpClient.delete(newUrl)
+
   }
 }
