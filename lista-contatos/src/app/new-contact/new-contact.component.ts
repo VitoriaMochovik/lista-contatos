@@ -10,18 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NewContactComponent implements OnInit {
 
-
- @Input() contatos: any[] = []
+  @Input() contatos: any[] = []
 
   public name: string = ""
   public email: string = ""
   public telephone: string = ""
-
-  // constructor( name: string, email: string, telephone: string) {
-  //   this.name = name
-  //   this.email = email
-  //   this.telephone = telephone
-  // }
+  public id: string = ""
 
   constructor(private service: CreateContatService,
     private route: ActivatedRoute) {}
@@ -30,8 +24,8 @@ export class NewContactComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: any) => {
-        const id = params['id']
-        const contact$ = this.service.loadById(id)
+         this.id = params['id']
+        const contact$ = this.service.loadById(this.id)
 
         contact$.subscribe(contact => {
             this.updateInputs(contact)
@@ -48,37 +42,46 @@ export class NewContactComponent implements OnInit {
 
   createContact(){
     const contact: Contact = {
+      id: this.id,
       name: this.name,
       email: this.email,
       telephone_number: this.telephone
     }
 
-    this.service.createContact(contact).subscribe(resultado => {
+    if(this.id === "") {
+       this.service.createContact(contact).subscribe(resultado => {
       console.log(resultado)
       },
       error => console.error()
     )
 
-    console.log("Solicitei", this.name, this.email, this.telephone )
+    } else {
+      this.service.updateContact(contact).subscribe(resultado => {
+        console.log(resultado)
+      },
+      error => console.error())
+    }
+
+
     this.limparCampos()
   }
 
-  update(user: Contact) {
-    this.name = user.name
-    this.email = user.email
-    this.telephone = user.telephone_number
+  // update(user: Contact) {
+  //   this.name = user.name
+  //   this.email = user.email
+  //   this.telephone = user.telephone_number
 
-    const contact: Contact = {
-      name: this.name,
-      email: this.email,
-      telephone_number: this.telephone
-    }
+  //   const contact: Contact = {
+  //     name: this.name,
+  //     email: this.email,
+  //     telephone_number: this.telephone
+  //   }
 
-    this.service.updateContact(contact).subscribe(resultado => {
-      console.log(resultado)
-    },
-    error => console.error())
-  }
+  //   this.service.updateContact(contact).subscribe(resultado => {
+  //     console.log(resultado)
+  //   },
+  //   error => console.error())
+  // }
 
   limparCampos() {
     this.name = ""
