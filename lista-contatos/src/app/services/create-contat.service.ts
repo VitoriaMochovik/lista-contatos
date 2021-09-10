@@ -25,7 +25,7 @@ export class CreateContatService {
     return this.httpClient.get<Contact[]>(this.url)
   }
 
-  updateContact(contact: Contact) {
+  updateContact(contact: Contact): Observable<Contact>{
     const newUrl = `${this.url}/${contact.id}`
     return this.httpClient.put<Contact>(newUrl, contact)
   }
@@ -34,6 +34,6 @@ export class CreateContatService {
     const newUrl = `${this.url}/${contact.id}`
 
     return this.httpClient.delete(newUrl)
-    // console.log("new url", newUrl)
+
   }
 }

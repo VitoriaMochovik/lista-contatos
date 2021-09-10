@@ -1,12 +1,14 @@
+import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ListContactsComponent } from './list-contacts/list-contacts.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'contatos', pathMatch: 'full'},
+  {path: '', component: ListContactsComponent},
   {path: 'cadastro', component: NewContactComponent },
   {path: 'contatos', component: ListContactsComponent },
+  {path: 'editar/:id', component: NewContactComponent}
 ]
 
 @NgModule({
@@ -14,3 +16,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+//redirectTo: '' pathMath: "full"

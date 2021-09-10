@@ -1,6 +1,8 @@
+import { NewContactComponent } from './../new-contact/new-contact.component';
 import { Contact } from './../models/contact.model';
 import { CreateContatService } from './../services/create-contat.service';
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-contacts',
@@ -13,7 +15,9 @@ export class ListContactsComponent implements OnInit {
   //@Output() updateContact = ""
   //@Output() deleteContact = new EventEmitter()
 
-  constructor(private service: CreateContatService) { }
+  constructor(private service: CreateContatService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getAllContacts().subscribe((x) => (this.contatos = x))
@@ -23,17 +27,15 @@ export class ListContactsComponent implements OnInit {
     this.service.updateContact(contact)
   }
 
+
   delete(contact: Contact){
     this.service.deleteContact(contact).subscribe(resultado => {
       console.log(resultado)
     },
     error => console.error())
   }
+
+  onEdit(contact: Contact){
+    this.router.navigate(['editar', contact.id])
+  }
 }
-
-
-// this.service.createContact(contact).subscribe(resultado => {
-//   console.log(resultado)
-//   },
-//   error => console.error()
-// )
