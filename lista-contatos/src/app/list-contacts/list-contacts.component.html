@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
   <h2> Contatos</h2>
   <div *ngFor="let contato of contatos">
     <p> {{contato.name}}</p>
@@ -8,4 +8,29 @@
     <button (click)="delete(contato)"> X </button>
     <p> _________________________</p>
   </div>
+</section> -->
+
+
+<section>
+  <h2 class="=title"> Contatos</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let contato of contatos">
+
+      <div matLine>
+        <p> {{contato.name}}</p>
+        <p mat-line>
+          <span> {{contato.email}}</span>
+          <span> | </span>
+          <span> {{contato.telephone_number}} </span>
+        </p>
+
+      </div>
+
+
+
+    <button (click)="onEdit(contato)"> Editar</button>
+    <button (click)="delete(contato)"> X </button>
+
+  </mat-list-item>
+</mat-list>
 </section>
