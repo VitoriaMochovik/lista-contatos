@@ -12,9 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListContactsComponent implements OnInit {
   @Input() contatos: any[] = []
 
-  //@Output() updateContact = ""
-  //@Output() deleteContact = new EventEmitter()
-
   constructor(private service: CreateContatService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -30,9 +27,9 @@ export class ListContactsComponent implements OnInit {
 
   delete(contact: Contact){
     this.service.deleteContact(contact).subscribe(resultado => {
-      console.log(resultado)
+      alert(resultado)
     },
-    error => console.error())
+    error => alert(error()))
   }
 
   onEdit(contact: Contact){

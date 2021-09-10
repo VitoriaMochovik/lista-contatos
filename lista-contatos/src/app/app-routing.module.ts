@@ -1,4 +1,3 @@
-import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ListContactsComponent } from './list-contacts/list-contacts.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NgModule } from '@angular/core';

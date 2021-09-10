@@ -1,21 +1,8 @@
-<!-- <section>
-  <h2> Contatos</h2>
-  <div *ngFor="let contato of contatos">
-    <p> {{contato.name}}</p>
-    <p> {{contato.email}}</p>
-    <p> {{contato.telephone_number}} </p>
-     <button (click)="onEdit(contato)"> Editar</button>
-    <button (click)="delete(contato)"> X </button>
-    <p> _________________________</p>
-  </div>
-</section> -->
-
 
 <section>
   <h2 class="=title"> Contatos</h2>
   <mat-list>
     <mat-list-item *ngFor="let contato of contatos">
-
       <div matLine>
         <p> {{contato.name}}</p>
         <p mat-line>
@@ -23,15 +10,12 @@
           <span> | </span>
           <span> {{contato.telephone_number}} </span>
         </p>
-
       </div>
-
         <mat-icon (click)="onEdit(contato)">edit</mat-icon>
         <mat-icon (click)="delete(contato)">delete_outline</mat-icon>
-
   </mat-list-item>
 </mat-list>
 </section>
 
 
-<!-- <mat-icon name="delete"aria-hidden="false" aria-label="Example delete icon">home</mat-icon> -->
+
