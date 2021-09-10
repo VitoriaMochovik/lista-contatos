@@ -21,6 +21,10 @@ export class CreateContatService {
     return this.httpClient.post<Contact>(this.url, body)
   }
 
+  loadById(id: string){
+    return this.httpClient.get(`${this.url}/${id}`)
+  }
+
   getAllContacts() {
     return this.httpClient.get<Contact[]>(this.url)
   }

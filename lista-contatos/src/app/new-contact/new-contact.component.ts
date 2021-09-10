@@ -31,8 +31,19 @@ export class NewContactComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id']
+        const contact$ = this.service.loadById(id)
+
+        contact$.subscribe(contact => {
+            this.updateInputs(contact)
+        })
       }
     )
+  }
+
+  updateInputs(contact: any) {
+    this.name = contact.name
+    this.email = contact.email
+    this.telephone = contact.telephone_number
   }
 
   createContact(){
