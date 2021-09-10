@@ -3,10 +3,13 @@ import { Contact } from './../models/contact.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import {MAT_FORM_FIELD, MatFormField, MatFormFieldControl} from '@angular/material/form-field';
+
 @Component({
   selector: 'app-new-contact',
   templateUrl: './new-contact.component.html',
-  styleUrls: ['./new-contact.component.css']
+  styleUrls: ['./new-contact.component.css'],
+
 })
 export class NewContactComponent implements OnInit {
 
@@ -48,7 +51,7 @@ export class NewContactComponent implements OnInit {
       telephone_number: this.telephone
     }
 
-    if(this.id === "") {
+    if(this.id === undefined) {
        this.service.createContact(contact).subscribe(resultado => {
       console.log(resultado)
       },
@@ -90,3 +93,6 @@ export class NewContactComponent implements OnInit {
   }
 
 }
+
+
+

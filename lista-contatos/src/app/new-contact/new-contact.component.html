@@ -1,20 +1,40 @@
-<form (ngSubmit)="createContact()">
-  <h2> Novo Contato</h2>
 
-  <div>
-    <label for="name"> Name</label>
-    <input id="name" type="text" [(ngModel)]="name" name="name">
+<section class="container">
+  <form class="formulario" (ngSubmit)="createContact()">
+    <h2 class="title"> Novo Contato</h2>
+    <div class="form-field">
+      <label for="name"> Name</label>
+      <input id="name" type="text" [(ngModel)]="name" name="name">
+    </div>
+
+    <div class="form-field">
+      <label for="email"> Email</label>
+      <input id="email" type="text" [(ngModel)]="email" name="email">
+    </div>
+
+    <div class="form-field">
+      <label for="telephone"> Telefone</label>
+      <input id="telephone" type="text" [(ngModel)]="telephone" name="telephone">
+    </div>
+    <div class="botao-wrapper">
+    <button class="botao" type="submit"> Salvar </button>
   </div>
+  </form>
+</section>
 
-  <div>
-    <label for="email"> Email</label>
-    <input id="email" type="text" [(ngModel)]="email" name="email">
-  </div>
 
-  <div>
-    <label for="telephone"> Telefone</label>
-    <input id="telephone" type="text" [(ngModel)]="telephone" name="telephone">
-  </div>
+ <!-- <section class="container">
+  <mat-form-field>
+    <input matInput placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Nome">
+  </mat-form-field>
+  <button mat-button > Salvar </button>
+ </section> -->
 
-  <button type="submit"> Salvar </button>
-</form>
+
+
