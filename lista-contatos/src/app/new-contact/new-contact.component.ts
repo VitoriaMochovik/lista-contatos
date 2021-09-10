@@ -53,38 +53,20 @@ export class NewContactComponent implements OnInit {
 
     if(this.id === undefined) {
        this.service.createContact(contact).subscribe(resultado => {
-      console.log(resultado)
+      alert("Contato criado com sucesso!")
       },
-      error => console.error()
+      error => console.error(error.message)
     )
 
     } else {
       this.service.updateContact(contact).subscribe(resultado => {
-        console.log(resultado)
+        alert("Contato atualizado!")
       },
-      error => console.error())
+      error => console.log(error))
     }
-
 
     this.limparCampos()
   }
-
-  // update(user: Contact) {
-  //   this.name = user.name
-  //   this.email = user.email
-  //   this.telephone = user.telephone_number
-
-  //   const contact: Contact = {
-  //     name: this.name,
-  //     email: this.email,
-  //     telephone_number: this.telephone
-  //   }
-
-  //   this.service.updateContact(contact).subscribe(resultado => {
-  //     console.log(resultado)
-  //   },
-  //   error => console.error())
-  // }
 
   limparCampos() {
     this.name = ""

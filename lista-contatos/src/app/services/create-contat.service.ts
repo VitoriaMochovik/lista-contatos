@@ -16,8 +16,6 @@ export class CreateContatService {
 
   createContact(contact: Contact): Observable<Contact>{
     const body: Contact = contact
-
-    console.log("body", body)
     return this.httpClient.post<Contact>(this.url, body)
   }
 
@@ -37,7 +35,7 @@ export class CreateContatService {
   deleteContact(contact: Contact): Observable<any>{
     const newUrl = `${this.url}/${contact.id}`
 
-    return this.httpClient.delete(newUrl)
+    return this.httpClient.delete<any>(newUrl)
 
   }
 }

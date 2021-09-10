@@ -29,7 +29,8 @@ export class ListContactsComponent implements OnInit {
     this.service.deleteContact(contact).subscribe(resultado => {
       alert(resultado)
     },
-    error => alert(error()))
+    error => console.log(error)
+    )
   }
 
   onEdit(contact: Contact){
