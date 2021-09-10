@@ -1,6 +1,6 @@
 import { CreateContatService } from './../services/create-contat.service';
 import { Contact } from './../models/contact.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-contact',
@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-contact.component.css']
 })
 export class NewContactComponent implements OnInit {
+
+
+ @Input() contatos: any[] = []
 
   public name: string = ""
   public email: string = ""

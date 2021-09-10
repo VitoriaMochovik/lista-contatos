@@ -7,18 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { ListContactsComponent } from './list-contacts/list-contacts.component';
+import { EventEmitter } from '@angular/core';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NewContactComponent,
-    ListContactsComponent
+    ListContactsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
