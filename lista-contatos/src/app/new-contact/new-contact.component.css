@@ -2,14 +2,25 @@
   background-color: white;
   padding: 16px;
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 
 
-  /* .h2 {
+
+}
+
+.title {
+  align-items: center;
+  text-align: center;
+
+}
+
+.h2 {
     text-transform: capitalize;
     color: var(--primary);
-  } */
-}
+    text-align: center;
+
+  }
+
 
 .form-field {
   width: 100%;
@@ -59,4 +70,28 @@
   } */
 
 
+}
+
+
+
+.example-tel-input-container {
+  display: flex;
+}
+
+.example-tel-input-element {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.example-tel-input-spacer {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+:host.example-floating .example-tel-input-spacer {
+  opacity: 1;
 }
